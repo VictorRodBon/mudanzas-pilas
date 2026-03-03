@@ -4,19 +4,27 @@ import Servicio from "./Servicio.astro"
 ---
 <h2>SERVICIOS</h2>
 <div class="servicios">
-    <ul>
-    {
-        Object.values(servicios).map((s: any)=>(
-        <Servicio nombre={s.nombre}>  
-            <ul>
-                {
-                Object.values(s.parrafos).map((p: any)=>(
-                    <li>{p}</li>
-                ))
-                }
-            </ul>
-        </Servicio>
+{
+    Object.values(servicios).map((s: any)=>(
+    <Servicio nombre={s.nombre}> 
+        {
+        Object.values(s.parrafos).map((p: any)=>(
+            <p>{p}</p>
         ))
-    }
-    </ul>
+        }
+    </Servicio>
+    ))
+}
 </div>
+
+<style>
+    .servicios{
+        width:100%
+    }
+    h2{
+        font-size: 3rem;
+    }
+    p{
+        font-size: 1.25rem;
+    }
+</style>
