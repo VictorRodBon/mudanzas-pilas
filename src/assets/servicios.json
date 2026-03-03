@@ -1,0 +1,40 @@
+{
+    "mudanzas_hogar":{
+        "nombre": "Mudanzas Hogar",
+        "parrafos":{
+            "parrafo1":"MUDANZAS PILAS, se encargará de que su mudanza sea lo más, rápida, segura y eficaz posible; y así usted solo tenga que preocuparse de instalarse en su nuevo domicilio.",
+            "parrafo2":" Para ello contamos con todo lo necesario, tenemos personal cualificado en el ámbito del embalaje y manipulación de enseres, embalajes, vehículos acondicionados exclusivamente para mudanzas.",
+            "parrafo3":"En MUDANZAS PILAS nos encargamos de desmontar, embalar, cargar, trasladar, descargar y montar nuevamente todos aquellos muebles que hayamos desmontado.",
+            "parrafo4": "nuestros servicios están amparados por una póliza de seguro de mercancías y R.C."
+        }
+    },
+    "mudanzas_oficina":{
+        "nombre": "Mudanzas Oficina",
+        "parrafos":{
+            "parrafo1":"Realizamos el traslado de su empresa encargándonos de las operaciones de embalaje de documentación, archivos, enseres personales, así como el desmontaje y montaje de mobiliario en sus nuevas instalaciones.",
+            "parrafo2":"En MUDANZAS PILAS contamos con una larga experiencia en el traslado de empresas de cualquier sector, pero en especial, en laboratorios de investigación y desarrollo, por ello contamos con personal cualificado y preparado expresamente para estos servicios."
+        }
+    },
+    "viajes_combinados":{
+        "nombre": "Viajes combinados",
+        "parrafos":{
+            "parrafo1":"Gracias a este servicio, que MUDANZAS PILAS pone a su disposición, usted puede enviar sus muebles y enseres a cualquier punto del territorio nacional incluido Ceuta, Melilla, Baleares y Canarias. En un plazo de 15 días dependiendo del punto de destino."
+        }
+    },
+    "grua_montamuebles":{
+        "nombre": "Grua Montamuebles",
+        "parrafos":{
+            "parrafo1":"Con nuestras grúas-montamuebles garantizamos rapidez y seguridad en la realización de su mudanza. Disponemos de varios modelos de grúa-montamuebles para los diferentes accesos y alturas.",
+            "parrafo2":"Satisfacemos la demanda de cualquier sector para la elevación de materiales o mercancías por fachada, como puede ser el sector inmobiliario (cocina, oficina, hogar) cinematográfico, (cine, publicidad, TV) construcción e industria."
+        }
+    },
+    "guardamuebles":{
+        "nombre": "Guardamuebles",
+        "parrafos":{
+            "parrafo1":"MUDANZA PILAS les ofrece un lugar seguro donde usted pueda depositar sus pertenencias con total tranquilidad.",
+            "parrafo2":"Nuestro guardamuebles está organizado mediante contenedores individuales con una capacidad de 10m3 /contenedor. Y en el cual una vez embalado sus enseres en su domicilio, etiquetados y con su correspondiente inventario, se depositará en el contenedor sin necesidad de más manipulación hasta la entrega en su domicilio.",
+            "parrafo3":"También disponemos de Estanterías Industriales, para almacenar cualquier tipo de mercancía paletizada.",
+            "parrafo4":"Nuestro guardamuebles cuenta con diferentes sistemas anti-incendios, y con vigilancia las 24 horas del día."
+        }
+    }
+}

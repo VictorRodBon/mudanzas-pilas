@@ -1,0 +1,22 @@
+---
+import servicios from "../assets/servicios.json"
+import Servicio from "./Servicio.astro"
+---
+<h2>SERVICIOS</h2>
+<div class="servicios">
+    <ul>
+    {
+        Object.values(servicios).map((s: any)=>(
+        <Servicio nombre={s.nombre}>  
+            <ul>
+                {
+                Object.values(s.parrafos).map((p: any)=>(
+                    <li>{p}</li>
+                ))
+                }
+            </ul>
+        </Servicio>
+        ))
+    }
+    </ul>
+</div>
