@@ -1,11 +1,15 @@
 ---
-const { nombre } = Astro.props;
+const { nombre,img } = Astro.props;
+
 import Modal from "./Modal.astro";
 let open = false;
 ---
 
 <div class="servicio">
   <h3>{nombre}</h3>
+
+  <img src={img} alt={nombre} loading="eager">
+
   <button class="open-modal">Más información</button>
 
   <Modal open={open}>
@@ -37,12 +41,17 @@ let open = false;
     border-radius: 10px;
     width: 18vw;
     max-width: 1024px;
-    height: 15vh;
+    height: auto;
   }
 
   h3 {
     margin: 0px;
     color: #1f4ea6;
     font-size: 2em;
+    text-align: center;
+  }
+  img{
+    width: 50%;
+    margin: 10% auto 10%;
   }
 </style>

@@ -5,10 +5,10 @@ import Servicio from "./Servicio.astro"
 ---
 <h2>SERVICIOS</h2>
 
-<div class="servicios">
+<div id="servicios">
   {
     Object.values(servicios).map((s: any)=>(
-      <Servicio nombre={s.nombre}>
+      <Servicio nombre={s.nombre} img={s.img}>
         
         {
         
@@ -23,7 +23,7 @@ import Servicio from "./Servicio.astro"
 </div>
 
 <style>
-  .servicios {
+  #servicios {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
@@ -38,5 +38,6 @@ import Servicio from "./Servicio.astro"
 
   p {
     font-size: 1.25rem;
+    color: #1F2937;
   }
 </style>
