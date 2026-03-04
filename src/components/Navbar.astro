@@ -1,0 +1,56 @@
+<style>
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #333333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5vh;
+}
+
+.logo img {
+  max-height: 80px;
+  width: auto;
+  display: block;
+  padding: 5px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar ul li {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.navbar ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 25px 20px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.navbar ul li a:hover {
+  background-color: #ffffff;
+  color: black;
+}
+</style>
+
+
+<nav class="navbar">
+        <div class="logo"><img src="src/assets/logo.png"/></div>
+    <ul>
+        <li><a href="">INICIO</a></li>
+        <li><a href="#servicios">SERVICIOS</a></li>
+        <li><a href="">CONTACTO</a></li>
+    </ul>
+</nav>
