@@ -1,0 +1,45 @@
+---
+const { open } = Astro.props;
+---
+
+<div class={`modal ${open ? "show" : ""}`}>
+  <div class="modal-content">
+    <slot />
+    <button class="close-modal">Cerrar</button>
+  </div>
+</div>
+
+<style>
+  .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .modal.show {
+    background: rgba(0,0,0,0.5);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .modal-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    width: 70vw;
+  }
+
+  .modal.show .modal-content {
+    transform: translateY(0);
+    opacity: 1;
+  }
+</style>

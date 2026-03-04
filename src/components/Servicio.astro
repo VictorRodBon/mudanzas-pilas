@@ -1,16 +1,48 @@
 ---
-const {nombre}=Astro.props;
+const { nombre } = Astro.props;
+import Modal from "./Modal.astro";
+let open = false;
 ---
 
 <div class="servicio">
+  <h3>{nombre}</h3>
+  <button class="open-modal">Más información</button>
+
+  <Modal open={open}>
     <h3>{nombre}</h3>
     <slot />
+  </Modal>
+  <script is:inline>
+      {
+        const root = document.currentScript.closest(".servicio");
+        const openBtn = root.querySelector(".open-modal");
+        const modal = root.querySelector(".modal");
+        const closeBtn = modal.querySelector(".close-modal");
+      
+        openBtn.addEventListener("click", () => modal.classList.add("show"));
+        closeBtn.addEventListener("click", () => modal.classList.remove("show"));
+      }
+  </script>
 </div>
 
-<style>
-    h3{
-        color: #1f4ea6;
-        font-size: 2em;
-    }
     
+
+<style>
+  .servicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    border: 3px solid #1f4ea6;
+    border-radius: 10px;
+    width: 18vw;
+    max-width: 1024px;
+    height: 15vh;
+  }
+
+  h3 {
+    margin: 0px;
+    color: #1f4ea6;
+    font-size: 2em;
+  }
 </style>
