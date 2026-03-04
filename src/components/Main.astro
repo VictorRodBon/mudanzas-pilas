@@ -2,15 +2,31 @@
 import Servicios from "./Servicios.astro";
 ---
 <main>
-    <Servicios />
+    <content id="content">
+        <Servicios />
+    </content>
 </main>
 
 <style>
-    main{
-        padding-left: 5%;
-        padding-right: 5%;
-        padding-bottom: 5%;
-        width: 90%;
+
+    main {
+        background-image: url("/img/mudanza-gato.jpg");
+        background-size: cover;        /* La imagen cubre todo el fondo */
+        background-position: center;   /* Centrada */
+        background-repeat: no-repeat;  /* Sin repetirse */
+        position: relative;            /* Necesario para el overlay */
+    }
+    main::before {
+        content: "";
+        position: absolute;
+        inset: 0;                      /* Ocupa todo el contenedor */
+        background: rgba(255, 255, 255, 0.40); /* Color + opacidad (ajusta a tu gusto) */
+        z-index: 0;                    /* Debajo del contenido */
+    }
+
+    main > * {
+        position: relative;
+        z-index: 1;                    /* Encima del overlay */
     }
     
     
