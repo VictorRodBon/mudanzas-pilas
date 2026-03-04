@@ -1,34 +1,35 @@
 ---
-import servicios from "../assets/servicios.json"
-import Servicio from "./Servicio.astro"
-
+import servicios from "../assets/servicios.json";
+import Servicio from "./Servicio.astro";
 ---
-<h2>SERVICIOS</h2>
 
 <div id="servicios">
-  {
-    Object.values(servicios).map((s: any)=>(
-      <Servicio nombre={s.nombre} img={s.img}>
-        
-        {
-        
-          Object.values(s.parrafos).map((p: any)=>(
+  <h2>SERVICIOS</h2>
+  <div id="serviciosContent">
+    {
+      Object.values(servicios).map((s: any) => (
+        <Servicio nombre={s.nombre} img={s.img}>
+          {Object.values(s.parrafos).map((p: any) => (
             <p>{p}</p>
-          ))
-        }
-        <i class='fa-solid fa-box-archive'></i>
-      </Servicio>
-    ))
-  }
+          ))}
+          <i class="fa-solid fa-box-archive" />
+        </Servicio>
+      ))
+    }
+  </div>
 </div>
 
 <style>
-  #servicios {
+  #servicios{
+    scroll-margin-top: 100px;
+  }
+
+  #serviciosContent {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
     gap: 5vw;
-    width:100%
+    width: 100%;
   }
 
   h2 {
@@ -38,6 +39,6 @@ import Servicio from "./Servicio.astro"
 
   p {
     font-size: 1.25rem;
-    color: #1F2937;
+    color: #1f2937;
   }
 </style>
