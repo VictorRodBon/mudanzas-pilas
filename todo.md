@@ -1,4 +1,4 @@
 [] Página *¿Quienes somos?*
-[] Ampliar logo
+[X] Ampliar logo
 [] Versión movil
 [] Funcionalida de formulario
