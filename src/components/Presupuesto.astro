@@ -1,0 +1,155 @@
+<section id="presupuesto" class="presupuesto">
+  <div class="presupuesto__inner">
+    <h2 class="presupuesto__title">Pedir presupuesto</h2>
+    <p class="presupuesto__subtitle">
+      Cuéntanos lo que necesitas y te respondemos lo antes posible.
+    </p>
+
+    <form class="presupuesto__form" method="post">
+      <div class="presupuesto__grid" id="contacto">
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" autocomplete="given-name" required />
+        </div>
+
+        <div class="field">
+          <label for="apellidos">Apellidos</label>
+          <input id="apellidos" name="apellidos" type="text" autocomplete="family-name" required />
+        </div>
+
+        <div class="field">
+          <label for="telefono">Teléfono</label>
+          <input
+            id="telefono"
+            name="telefono"
+            type="tel"
+            autocomplete="tel"
+            required
+          />
+        </div>
+
+        <div class="field">
+          <label for="correo">Correo</label>
+          <input id="correo" name="correo" type="email" autocomplete="email" required />
+        </div>
+
+        <div class="field field--full">
+          <label for="mensaje">¿Qué necesitas?</label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="6"
+            required
+          ></textarea>
+        </div>
+
+        <div class="actions field--full">
+          <button type="submit">Enviar</button>
+        </div>
+      </div>
+    </form>
+
+    
+  </div>
+</section>
+
+<style>
+  .presupuesto {
+    padding: 64px 20px;
+    background: rgba(255, 255, 255, 0.75);
+  }
+
+  .presupuesto__inner {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .presupuesto__title {
+    margin: 0;
+    text-align: center;
+    font-size: clamp(28px, 3.2vw, 40px);
+    color: #0f2e5f;
+    letter-spacing: 0.5px;
+  }
+
+  .presupuesto__subtitle {
+    margin: 10px 0 26px;
+    text-align: center;
+    color: #2f2f2f;
+  }
+
+  .presupuesto__form {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(15, 46, 95, 0.25);
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  }
+
+  .presupuesto__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .field--full {
+    grid-column: 1 / -1;
+  }
+
+  label {
+    font-weight: 700;
+    color: #163d7a;
+  }
+
+  input, textarea {
+    border: 2px solid rgba(15, 46, 95, 0.2);
+    border-radius: 10px;
+    padding: 12px 12px;
+    font-size: 16px;
+    outline: none;
+  }
+
+  input:focus, textarea:focus {
+    border-color: rgba(15, 46, 95, 0.55);
+  }
+
+  .actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  button {
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-weight: 800;
+    cursor: pointer;
+    background: #0f2e5f;
+    color: white;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    filter: brightness(1.08);
+  }
+
+  .presupuesto__note {
+    margin: 12px 0 0;
+    font-size: 13px;
+    color: rgba(0,0,0,0.6);
+    text-align: center;
+  }
+
+  @media (max-width: 720px) {
+    .presupuesto__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
