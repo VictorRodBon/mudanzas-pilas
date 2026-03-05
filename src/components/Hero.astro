@@ -1,9 +1,8 @@
 ---
-const img = Astro.props.img ?? "/img/hero.jfif";
-const alt = Astro.props.alt ?? "Mudanzas Pila";
+const alt = Astro.props.alt ?? "Mudanzas Pilas";
 ---
 
-<section class="hero" aria-label="Hero">
+<section class="hero" id="hero" aria-label="Hero">
   <div class="hero__inner">
     <h1 class="hero__title">Mudanzas Pilas</h1>
     <p class="hero__tagline">Mudanzas rápidas, cuidadas y al mejor precio</p>
@@ -13,41 +12,44 @@ const alt = Astro.props.alt ?? "Mudanzas Pila";
 
 <style>
   .hero {
-  height: clamp(300px, 55vh, 520px);
-  width: calc(100% - 48);
-  background: linear-gradient(135deg, #f3f7ff 0%, #f6ead8 70%, #fff7ee 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 24px;
+    height: clamp(300px, 100vh, calc(100vh - 105px));
+    width: calc(100% - 48);
+    background-image: url("/img/fondo.svg");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 24px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    scroll-margin-top: 105px;
   }
-  .hero__inner{
-  width: 100%;
-  max-width: 980px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.hero__title{
-  margin: 0;
-  font-size: clamp(38px, 5vw, 64px);
-  line-height: 1.05;
-  color: #0f2e5f; 
-  letter-spacing: 0.5px;
+  .hero__inner {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    text-align: center;
   }
 
-.hero__tagline{
-  margin: 14px 0 0;
-  font-size: clamp(18px, 2.2vw, 26px);
-  font-weight: 700;
-  color: #163d7a;
-}
+  .hero__title {
+    margin: 0;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.05;
+    color: #0f2e5f;
+    letter-spacing: 0.5px;
+  }
 
-.hero__sub{
-  margin: 10px 0 0;
-  font-size: clamp(15px, 1.7vw, 18px);
-  color: #2f2f2f;
-}
+  .hero__tagline {
+    margin: 14px 0 0;
+    font-size: clamp(18px, 2.2vw, 26px);
+    font-weight: 700;
+    color: #163d7a;
+  }
+
+  .hero__sub {
+    margin: 10px 0 0;
+    font-size: clamp(15px, 1.7vw, 18px);
+    color: #2f2f2f;
+  }
 
   .hero__img {
     width: 100%;
