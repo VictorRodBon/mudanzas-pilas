@@ -1,3 +1,8 @@
+---
+import { actions } from 'astro:actions';
+
+const result = Astro.getActionResult(actions.sendEmail);
+---
 <section id="presupuesto" class="presupuesto">
   <div class="presupuesto__inner" id="contacto">
     <h2 class="presupuesto__title">Pedir presupuesto</h2>
@@ -5,7 +10,7 @@
       Cuéntanos lo que necesitas y te respondemos lo antes posible.
     </p>
 
-    <form class="presupuesto__form" method="post">
+    <form class="presupuesto__form" method="post" action={actions.sendEmail}>
       <div class="presupuesto__grid">
         <div class="field">
           <label for="nombre">Nombre</label>
@@ -14,7 +19,7 @@
             name="nombre"
             type="text"
             autocomplete="given-name"
-            required
+            
           />
         </div>
 
@@ -25,7 +30,7 @@
             name="apellidos"
             type="text"
             autocomplete="family-name"
-            required
+            
           />
         </div>
 
@@ -36,7 +41,7 @@
             name="telefono"
             type="tel"
             autocomplete="tel"
-            required
+            
           />
         </div>
 
@@ -47,13 +52,13 @@
             name="correo"
             type="email"
             autocomplete="email"
-            required
+            
           />
         </div>
 
         <div class="field field--full">
           <label for="mensaje">¿Qué necesitas?</label>
-          <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+          <textarea id="mensaje" name="mensaje" rows="6" ></textarea>
         </div>
 
         <div class="actions field--full">
@@ -167,3 +172,27 @@
     }
   }
 </style>
+
+
+<script>
+  import { actions } from 'astro:actions';
+
+  const form = document.querySelector('.presupuesto__form') as HTMLFormElement;
+  
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Detenemos la recarga de página
+    console.log("🚀 Enviando formulario...");
+
+    const formData = new FormData(form);
+    const { data, error } = await actions.sendEmail(formData);
+
+    if (error) {
+      console.error("❌ Error de validación o servidor:", error);
+      alert("Error al enviar: " + (error.message || "Revisa los campos"));
+    } else {
+      console.log("✅ ¡Éxito! Respuesta del servidor:", data);
+      alert("¡Formulario enviado con éxito!");
+      form.reset();
+    }
+  });
+</script>
