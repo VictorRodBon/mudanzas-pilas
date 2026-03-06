@@ -20,7 +20,7 @@ export default defineConfig({
     // Si quieres máxima seguridad y que funcione, déjalo en true 
     // PERO asegúrate de que PUBLIC_SITE_URL sea EXACTAMENTE la URL de Vercel.
     // Si sigue fallando, cámbialo a false temporalmente.
-    checkOrigin: false, 
+    checkOrigin: true, 
   },
 
   server: {
