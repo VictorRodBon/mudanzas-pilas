@@ -25,3 +25,4 @@ pnpm-debug.log*
 
 # index
 src/pages/index.astro
+.vercel

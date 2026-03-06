@@ -1,33 +1,47 @@
 ---
 import Servicios from "./Servicios.astro";
 ---
+
 <main>
-    <content id="content">
-        <Servicios />
-    </content>
+  <content id="content">
+    <Servicios />
+  </content>
 </main>
 
 <style>
+  main {
+    background-image: url("/img/fondo_servicios.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  main::before {
+    content: "";
+    position: absolute;
+    inset: 0; 
+    background: rgba(
+      255,
+      255,
+      255,
+      0.6
+    );
+    z-index: 0;
+  }
 
-    main {
-        background-image: url("/img/fondo_servicios.jpg");
-        background-size: cover;        /* La imagen cubre todo el fondo */
-        background-position: center;   /* Centrada */
-        background-repeat: no-repeat;  /* Sin repetirse */
-        position: relative;            /* Necesario para el overlay */
-    }
-    main::before {
-        content: "";
-        position: absolute;
-        inset: 0;                      /* Ocupa todo el contenedor */
-        background: rgba(255, 255, 255, 0.60); /* Color + opacidad (ajusta a tu gusto) */
-        z-index: 0;                    /* Debajo del contenido */
-    }
+  main > * {
+    position: relative;
+    z-index: 1;
+  }
 
-    main > * {
-        position: relative;
-        z-index: 1;                    /* Encima del overlay */
+  content{
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (max-width: 800px) {
+    content {
+      width: 100vw;
     }
-    
-    
+  }
 </style>
