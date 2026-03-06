@@ -1,0 +1,121 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Elegirnos from "../components/Elegirnos.astro";
+---
+
+<Layout>
+  <main>
+    <section>
+      <h2>Quienes somos</h2>
+      <p>
+        En Mudanzas Express somos una empresa especializada en traslados locales
+        y nacionales, comprometida con ofrecer un servicio seguro, eficiente y
+        sin complicaciones. Desde nuestros inicios, hemos tenido un objetivo
+        claro: hacer que cada mudanza sea una experiencia tranquila, organizada
+        y sin estrés para nuestros clientes.
+      </p>
+    </section>
+
+    <section>
+      <h2>Nuestra historia</h2>
+      <p>
+        Mudanzas Pilas nació con una idea clara: ofrecer un servicio de mudanzas
+        de calidad, accesible y confiable para todos. Empezamos como un pequeño
+        proyecto familiar y, gracias al esfuerzo diario y a la confianza de
+        nuestros clientes, hemos crecido hasta convertirnos en una empresa de
+        referencia en la zona.
+      </p>
+
+      <p>Hoy contamos con:</p>
+      <ul>
+        <li>Vehículos propios adaptados a todo tipo de mudanzas</li>
+        <li>Personal especializado en embalaje, carga y transporte</li>
+        <li>Materiales profesionales para proteger tus pertenencias</li>
+        <li>Seguros y garantías para tu tranquilidad</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Nuestra forma de trabajar</h2>
+      <p>Sabemos que una mudanza no es solo mover cajas.</p>
+      <p>Es trasladar recuerdos, proyectos y parte de tu vida.</p>
+
+      <p>Por eso trabajamos con:</p>
+
+      <ul>
+        <li>
+          Cercanía: escuchamos tus necesidades y te asesoramos desde el primer
+          momento.
+        </li>
+        <li>Transparencia: precios claros y sin sorpresas.</li>
+        <li>Cuidado: tratamos cada objeto como si fuera nuestro.</li>
+        <li>Eficiencia: puntualidad, organización y rapidez.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Nuestro equipo</h2>
+      <p>
+        El equipo de Mudanzas Pilas está formado por profesionales con amplia
+        experiencia en:
+      </p>
+      <ul>
+        <li>Embalaje especializado</li>
+        <li>Manipulación de muebles y electrodomésticos</li>
+        <li>Montaje y desmontaje</li>
+        <li>Transporte seguro</li>
+        <li>Logística y planificación</li>
+      </ul>
+      <p>
+        Cada miembro recibe formación continua para garantizar un servicio
+        impecable y adaptado a cada tipo de mudanza.
+      </p>
+    </section>
+
+    <section>
+      <h2>Por qué elegirnos</h2>
+      <div id="elegir">
+        <Elegirnos nombre="atencion"><h3>Atención personalizada</h3></Elegirnos>
+        <Elegirnos nombre="presupuesto"><h3>Presupuestos ajustados a tus necesidades</h3></Elegirnos>
+        <Elegirnos nombre="atencion"><h3>Servicio rápido y flexible</h3></Elegirnos>
+        <Elegirnos nombre="mudanzas"><h3>Materiales de embalaje de alta calidad</h3></Elegirnos>
+        <Elegirnos nombre="mudanzas"><h3>Mudanzas locales, nacionales y de oficina</h3></Elegirnos>
+        <Elegirnos nombre="opciones"><h3>Opciones de guardamuebles y almacenamiento</h3></Elegirnos>
+
+      </ul>
+    </section>
+
+    <section>
+      <h2>Estamos aquí para ayudarte</h2>
+      <p>
+        Si estás preparando una mudanza, grande o pequeña, en Mudanzas Pilas
+        estaremos encantados de acompañarte en cada paso.
+      </p>
+      <p>Tu tranquilidad es nuestra prioridad.</p>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  section {
+    width: 75%;
+    margin: auto;
+  }
+  main {
+    width: 100%;
+    background-color: #f7f7f7;
+    padding-top: 10px;
+  }
+
+  h2 {
+    margin: 0;
+  }
+  #elegir {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0%;
+    padding: 0%;
+
+    gap: 10px;
+  }
+</style>
