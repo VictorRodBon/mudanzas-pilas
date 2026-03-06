@@ -16,7 +16,7 @@ export default defineConfig({
   trailingSlash: 'ignore',
 
   security: {
-    checkOrigin: true, 
+    checkOrigin: false, 
   },
 
   server: {
