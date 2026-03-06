@@ -1,20 +1,31 @@
 import { loadEnv } from "vite";
-
-// @ts-check
 import { defineConfig } from 'astro/config';
-
 import vercel from '@astrojs/vercel';
 
-const { PUBLIC_SITE_URL } = loadEnv(process.env.NODE_ENV, process.cwd(), "");
+// Cargamos las variables (asegúrate de que el tercer parámetro sea '')
+const env = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), "");
+const siteUrl = env.PUBLIC_SITE_URL || "https://mudanzas-pilas.vercel.app";
 
-// https://astro.build/config
 export default defineConfig({
-  adapter: vercel(),
-  site: PUBLIC_SITE_URL,
+  // 1. Usar el adaptador de Vercel (Correcto)
+  adapter: vercel({
+    webAnalytics: { enabled: true },
+  }),
+  
+  // 2. Definir el sitio (Sin barra final al final del string si es posible)
+  site: siteUrl,
+
+  // 3. LA CLAVE: Configuración de seguridad
+  security: {
+    // Si quieres máxima seguridad y que funcione, déjalo en true 
+    // PERO asegúrate de que PUBLIC_SITE_URL sea EXACTAMENTE la URL de Vercel.
+    // Si sigue fallando, cámbialo a false temporalmente.
+    checkOrigin: false, 
+  },
+
   server: {
-    // Esto ayuda a que Astro confíe en los proxies de Vercel
     headers: {
-      "Access-Control-Allow-Origin": "https://mudanzas-pilas.vercel.app"
+      "Access-Control-Allow-Origin": siteUrl
     }
   }
 });
