@@ -187,10 +187,9 @@ const result = Astro.getActionResult(actions.sendEmail);
     const { data, error } = await actions.sendEmail(formData);
 
     if (error) {
-      console.error("❌ Error de validación o servidor:", error);
-      alert("Error al enviar: " + (error.message || "Revisa los campos"));
+      console.error("❌ Error de validación o servidor:");
+      alert("Error al enviar");
     } else {
-      console.log("✅ ¡Éxito! Respuesta del servidor:", data);
       alert("¡Formulario enviado con éxito!");
       form.reset();
     }

@@ -24,7 +24,7 @@ export const server = {
             from: "onboarding@resend.dev", // Prueba primero con este
             to: ["prueba-practicas@outlook.com"],
             subject: `Nuevo mensaje de ${input.nombre}`,
-            text: `Teléfono: ${input.telefono}\nMensaje: ${input.mensaje}`,
+            text: `Teléfono: ${input.telefono}\nCorreo: ${input.correo}\nMensaje: ${input.mensaje}`,
             replyTo: input.correo,
           });
       
