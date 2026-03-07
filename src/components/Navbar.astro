@@ -18,20 +18,34 @@
 </nav>
 
 <script>
-  const btn = document.getElementById('menu-btn');
-  const links = document.getElementById('nav-links');
+  const btn = document.getElementById("menu-btn");
+  const links = document.getElementById("nav-links");
 
-  btn?.addEventListener('click', () => {
-    links?.classList.toggle('is-open');
-    btn?.classList.toggle('active');
+  btn?.addEventListener("click", () => {
+    links?.classList.toggle("is-open");
+    btn?.classList.toggle("active");
   });
 
-  links?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      links.classList.remove('is-open');
-      btn?.classList.remove('active');
+  links?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      links.classList.remove("is-open");
+      btn?.classList.remove("active");
     });
   });
+
+  document.addEventListener("click", (e) => {
+    if (!(e.target instanceof Node)) return;
+
+    const clickDentroMenu = links?.contains(e.target);
+    const clickEnBoton = btn?.contains(e.target);
+
+    if (!clickDentroMenu && !clickEnBoton) {
+      links?.classList.remove("is-open");
+      btn?.classList.remove("active");
+    }
+  });
+
+
 </script>
 
 <style>
@@ -56,7 +70,7 @@
   }
 
   .nav-links {
-    list-style-type: none;
+    list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
@@ -105,7 +119,7 @@
     }
 
     .nav-links {
-      display: none;
+      display: flex;
       flex-direction: column;
       position: absolute;
       top: 105px;
@@ -114,7 +128,7 @@
       width: 100%;
       background-color: #333333;
       gap: 0;
-      
+
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -123,7 +137,7 @@
     .nav-links.is-open {
       max-height: 400px;
       border-top: 1px solid #444;
-      box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
     }
 
     .nav-links li {
@@ -144,10 +158,27 @@
       border-bottom: 1px solid #444;
       border-radius: 0;
     }
-    
+
     .nav-links li a:hover {
       transform: none;
       padding-left: 35px;
+    }
+    .bar {
+      width: 30px;
+      height: 3px;
+      background-color: white;
+      border-radius: 2px;
+      transition: 0.4s;
+    }
+
+    .menu-toggle.active .bar:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
     }
   }
 </style>
