@@ -44,7 +44,7 @@ const { open } = Astro.props;
   }
 
   .close-modal {
-    margin-left: auto; /* 👈 empuja el botón a la derecha */
+    margin-left: auto; 
     display: block;
     width: 10%;
     height: 30px;
@@ -61,5 +61,11 @@ const { open } = Astro.props;
     background-color: #132e62;
   }
 
+  @media (max-width: 768px) {
+    .modal-content{
+      margin-top: 120px;
+    }
+  }
+  
 
 </style>
