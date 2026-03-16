@@ -16,27 +16,37 @@ let open = false;
     <h3>{nombre}</h3>
     <slot />
   </Modal>
-  <script is:inline>
-    {
-      const root = document.currentScript.closest(".servicio");
-      const openBtn = root.querySelector(".open-modal");
-      const modal = root.querySelector(".modal");
-      const closeBtn = modal.querySelector(".close-modal");
+<script>
+  function inicializarModales() {
+    const servicios = document.querySelectorAll('.servicio');
 
-      // Abrir modal
-      openBtn.addEventListener("click", () => modal.classList.add("show"));
+    servicios.forEach((root) => {
+      const openBtn = root.querySelector('.open-modal');
+      const modal = root.querySelector('.modal');
+      const closeBtn = modal ? modal.querySelector('.close-modal') : null;
 
-      // Cerrar con botón
-      closeBtn.addEventListener("click", () => modal.classList.remove("show"));
+      if (!openBtn || !modal || !closeBtn) return;
 
-      // Cerrar al hacer clic fuera
-      modal.addEventListener("click", (e) => {
+      const newOpenBtn = openBtn.cloneNode(true);
+      openBtn.replaceWith(newOpenBtn);
+
+      const newCloseBtn = closeBtn.cloneNode(true);
+      closeBtn.replaceWith(newCloseBtn);
+
+      newOpenBtn.addEventListener('click', () => modal.classList.add('show'));
+
+      newCloseBtn.addEventListener('click', () => modal.classList.remove('show'));
+
+      modal.addEventListener('click', (e) => {
         if (e.target === modal) {
-          modal.classList.remove("show");
+          modal.classList.remove('show');
         }
       });
-    }
-  </script>
+    });
+  }
+
+  document.addEventListener('astro:page-load', inicializarModales);
+</script>
 </div>
 
 <style>
