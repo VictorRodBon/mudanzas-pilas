@@ -1,15 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Elegirnos from "../components/Elegirnos.astro";
+import Servicio from "../components/Servicio.astro";
+import elegirnos from "../assets/elegirnos.json";
+
 ---
 
 <Layout>
-  <section data-title="¿Quienes somos?">
+  <section data-title="¿Quienes somos?" id="principal">
     <main>
       <section>
         <h2>Quienes somos</h2>
         <p>
-          En Mudanzas Express somos una empresa especializada en traslados locales
+          En Mudanzas Pilas somos una empresa especializada en traslados locales
           y nacionales, comprometida con ofrecer un servicio seguro, eficiente y
           sin complicaciones. Desde nuestros inicios, hemos tenido un objetivo
           claro: hacer que cada mudanza sea una experiencia tranquila, organizada
@@ -38,8 +40,7 @@ import Elegirnos from "../components/Elegirnos.astro";
   
       <section>
         <h2>Nuestra forma de trabajar</h2>
-        <p>Sabemos que una mudanza no es solo mover cajas.</p>
-        <p>Es trasladar recuerdos, proyectos y parte de tu vida.</p>
+        <p>Sabemos que una mudanza no es solo mover cajas, es trasladar recuerdos, proyectos y parte de tu vida.</p>
   
         <p>Por eso trabajamos con:</p>
   
@@ -73,17 +74,20 @@ import Elegirnos from "../components/Elegirnos.astro";
         </p>
       </section>
   
-      <section>
+      <section id="elegirnos">
         <h2>Por qué elegirnos</h2>
-        <div id="elegir">
-          <Elegirnos nombre="atencion"><h3>Atención personalizada</h3></Elegirnos>
-          <Elegirnos nombre="presupuesto"><h3>Presupuestos ajustados a tus necesidades</h3></Elegirnos>
-          <Elegirnos nombre="atencion"><h3>Servicio rápido y flexible</h3></Elegirnos>
-          <Elegirnos nombre="mudanzas"><h3>Materiales de embalaje de alta calidad</h3></Elegirnos>
-          <Elegirnos nombre="mudanzas"><h3>Mudanzas locales, nacionales y de oficina</h3></Elegirnos>
-          <Elegirnos nombre="opciones"><h3>Opciones de guardamuebles y almacenamiento</h3></Elegirnos>
-  
-        </ul>
+        <div id="elegirnosContent">
+          {
+            Object.values(elegirnos).map((s: any) => (
+              <Servicio nombre={s.nombre} img={s.img}>
+                {Object.values(s.parrafos).map((p: any) => (
+                  <p>{p}</p>
+                ))}
+                <i class="fa-solid fa-box-archive" />
+              </Servicio>
+            ))
+          }
+        </div>
       </section>
   
       <section>
@@ -109,15 +113,83 @@ import Elegirnos from "../components/Elegirnos.astro";
     padding-top: 10px;
   }
 
-  h2 {
-    margin: 0;
+  .titulo {
+    color: #1f4ea6;
+    font-size: 3rem;
+    padding: 0%;
+    text-align: center;
+    font-weight: bold;
   }
-  #elegir {
+
+  #elegirnos {
+    scroll-margin-top: 100px;
+    margin: 0 10%;
+    padding: 0;
+    min-height: calc(100vh - 105px);
+    margin: auto;
+    width: 100%;
+    padding-bottom: 7vh;
+  }
+
+  #elegirnos>h2{
+    text-align: center;
+  }
+
+  #elegirnosContent {
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    margin: 0%;
-    padding: 0%;
-
-    gap: 10px;
+    gap: 5vw;
+    width: 100%;
+    margin: auto;
+    margin-top: 2vh;
   }
+
+  h2 {
+    color: #0f2e5f;
+    font-size: 3rem;
+    padding: 0%;
+    text-align: left;
+    margin: 0;
+  }
+
+  p:not(#elegirnosContent p) {
+    font-size: 1.25rem;
+    color: #1f2937;
+    padding: 0px;
+    margin: 0%;
+  }
+
+  main>section{
+    padding-bottom: 5vh;
+  }
+
+  main>section:last-child{
+    padding-bottom: 10vh;
+  }
+
+  ul{
+    margin: 0%;
+  }
+
+
+  @media (max-width: 768px) {
+    section {
+      width: 90%;
+    }
+
+    #elegirnos {
+      margin: 0;
+    }
+
+    h2, .titulo {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  
 </style>

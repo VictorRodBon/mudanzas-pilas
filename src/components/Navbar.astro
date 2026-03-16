@@ -18,34 +18,44 @@
 </nav>
 
 <script>
-  const btn = document.getElementById("menu-btn");
-  const links = document.getElementById("nav-links");
 
-  btn?.addEventListener("click", () => {
-    links?.classList.toggle("is-open");
-    btn?.classList.toggle("active");
-  });
+  const w = window as Window & { __mudanzasNavbarBound?: boolean };
+  if (!w.__mudanzasNavbarBound) {
+    // Evita registrar el mismo listener más de una vez (por ejemplo, tras navegar).
+    w.__mudanzasNavbarBound = true;
 
-  links?.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
+    // Cierra el menú dejando el DOM en estado "cerrado".
+    const closeMenu = (btn: HTMLElement, links: HTMLElement) => {
       links.classList.remove("is-open");
-      btn?.classList.remove("active");
+      btn.classList.remove("active");
+    };
+
+    document.addEventListener("click", (e) => {
+      if (!(e.target instanceof Node)) return;
+
+      const btn = document.getElementById("menu-btn");
+      const links = document.getElementById("nav-links");
+      // Si el navbar no está presente en esta vista, no hay nada que hacer.
+      if (!btn || !links) return;
+
+      // 1) Click en el botón: alterna abrir/cerrar (toggle).
+      if (btn.contains(e.target)) {
+        links.classList.toggle("is-open");
+        btn.classList.toggle("active");
+        return;
+      }
+
+      // 2) Click dentro del menú: si fue en un enlace, cierra (para UX en móvil).
+      if (links.contains(e.target)) {
+        const el = e.target instanceof Element ? e.target : null;
+        if (el?.closest("a")) closeMenu(btn, links);
+        return;
+      }
+
+      // 3) Click fuera del botón y del menú: cierra.
+      closeMenu(btn, links);
     });
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!(e.target instanceof Node)) return;
-
-    const clickDentroMenu = links?.contains(e.target);
-    const clickEnBoton = btn?.contains(e.target);
-
-    if (!clickDentroMenu && !clickEnBoton) {
-      links?.classList.remove("is-open");
-      btn?.classList.remove("active");
-    }
-  });
-
-
+  }
 </script>
 
 <style>
@@ -116,6 +126,13 @@
   @media (max-width: 768px) {
     .menu-toggle {
       display: flex;
+    }
+
+    
+    .logo img {
+      max-height: 60px;
+      width: auto;
+      display: block;
     }
 
     .nav-links {

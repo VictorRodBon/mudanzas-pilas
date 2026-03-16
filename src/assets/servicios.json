@@ -21,7 +21,7 @@
         "nombre": "Viajes Combinados",
         "img":"/img/viajes_combinados.svg",
         "parrafos": {
-            "parrafo1": "Gracias a este servicio, MUDANZAS PILAS le permite enviar sus muebles y enseres a cualquier punto del territorio nacional, incluido Ceuta, Melilla, Baleares y Canarias, con un plazo de entrega aproximado de 15 días según el destino."
+            "parrafo1": "Gracias a este servicio, MUDANZAS PILAS le permite enviar sus muebles y enseres a cualquier punto del territorio nacional, incluido Ceuta, Melilla, Baleares y Canarias, con un plazo de entrega lo más ajustado posible según el destino"
         }
     },
     "grua_montamuebles": {
@@ -40,6 +40,13 @@
             "parrafo2": "Nuestro guardamuebles está organizado en contenedores individuales de 10 m³. Una vez embalados sus enseres en su domicilio, etiquetados y con su correspondiente inventario, se depositan en el contenedor sin necesidad de más manipulación hasta su entrega.",
             "parrafo3": "También disponemos de estanterías industriales para almacenar cualquier tipo de mercancía paletizada.",
             "parrafo4": "Nuestro guardamuebles cuenta con sistemas antiincendios y vigilancia las 24 horas del día."
+        }
+    },
+    "inventario_digital": {
+        "nombre": "Inventario Digital",
+        "img":"/img/portatil.svg",
+        "parrafos": {
+            "parrafo1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio excepturi perferendis, provident, tempore libero numquam error tenetur, suscipit repellat repellendus enim eos nihil? Architecto doloribus optio, voluptatum cupiditate quod minima."
         }
     }
 }
