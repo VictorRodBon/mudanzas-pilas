@@ -1,4 +1,9 @@
-<section id="presupuesto" class="presupuesto">
+---
+import { actions } from 'astro:actions';
+
+const result = Astro.getActionResult(actions.sendEmail);
+---
+<section id="presupuesto" class="presupuesto" data-title="Contacto">
   <div class="presupuesto__inner" id="contacto">
     <h2 class="presupuesto__title">Pedir presupuesto</h2>
     <p class="presupuesto__subtitle">
@@ -14,7 +19,7 @@
             name="nombre"
             type="text"
             autocomplete="given-name"
-            required
+            
           />
         </div>
 
@@ -25,7 +30,7 @@
             name="apellidos"
             type="text"
             autocomplete="family-name"
-            required
+            
           />
         </div>
 
@@ -36,7 +41,7 @@
             name="telefono"
             type="tel"
             autocomplete="tel"
-            required
+            
           />
         </div>
 
@@ -47,13 +52,13 @@
             name="correo"
             type="email"
             autocomplete="email"
-            required
+            
           />
         </div>
 
         <div class="field field--full">
           <label for="mensaje">¿Qué necesitas?</label>
-          <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+          <textarea id="mensaje" name="mensaje" rows="6" ></textarea>
         </div>
 
         <div class="actions field--full">
@@ -167,3 +172,7 @@
     }
   }
 </style>
+
+<script >
+  import "../scripts/contacto.js";
+</script>

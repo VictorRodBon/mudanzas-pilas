@@ -3,7 +3,7 @@ import servicios from "../assets/servicios.json";
 import Servicio from "./Servicio.astro";
 ---
 
-<div id="servicios">
+<section id="servicios" data-title="Servicios">
   <h2>SERVICIOS</h2>
   <div id="serviciosContent">
     {
@@ -17,7 +17,7 @@ import Servicio from "./Servicio.astro";
       ))
     }
   </div>
-</div>
+</section>
 
 <style>
   #servicios {
@@ -45,6 +45,12 @@ import Servicio from "./Servicio.astro";
   p {
     font-size: 1.25rem;
     color: #1f2937;
+  }
+
+  @media (max-width: 768px) {
+    p{
+      font-size: 1rem;
+    }
   }
 
   

@@ -1,0 +1,43 @@
+---
+const { nombre } = Astro.props;
+---
+
+<div class="icon-card">
+  <img
+    src={`/img/${nombre}.svg`}
+    alt={`Icono de ${nombre}`}
+    loading="eager"
+    decoding="async"
+    width="120"
+    height="120"
+  />
+  <slot />
+</div>
+
+<style>
+  .icon-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 250px;
+    margin: 10px auto 30px auto;
+
+    width: 75%;
+    max-width: 200px;
+    min-width: 120px;
+
+    text-align: center;
+    border: 5px solid #132e62;
+    border-radius: 5px;
+    color: #132e62;
+
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  img {
+    display: block;
+  }
+</style>

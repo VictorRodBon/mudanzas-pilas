@@ -1,4 +1,8 @@
 ---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+import { ClientRouter } from "astro:transitions";
 
 ---
 
@@ -11,10 +15,13 @@
 
 		<link rel="icon" href="/img/logo.png" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Mudanzas Pilas</title>
+
+		<ClientRouter />
 	</head>
 	<body>
+		<Navbar/>
 		<slot />
+		<Footer />
 	</body>
 </html>
 
@@ -30,3 +37,27 @@
 		scroll-behavior: smooth;
 	}
 </style>
+
+<script is:inline>
+	function initSectionObserver() {
+		const sections = document.querySelectorAll("section[data-title]");
+	
+		const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				const newTitle = entry.target.dataset.title;
+				document.title = `Mudanzas Pilas | ${newTitle}`;
+			}
+			});
+		},
+		{
+			threshold: 0.5, 
+		}
+		);
+	
+		sections.forEach((sec) => observer.observe(sec));
+	}
+	document.addEventListener("DOMContentLoaded", initSectionObserver);
+	document.addEventListener("astro:page-load", initSectionObserver);
+</script>
