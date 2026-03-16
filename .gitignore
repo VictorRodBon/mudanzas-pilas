@@ -23,6 +23,8 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# index
-src/pages/index.astro
+
 .vercel
+
+.atl
+.vscode
