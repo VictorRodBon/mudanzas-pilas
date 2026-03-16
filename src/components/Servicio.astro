@@ -13,12 +13,10 @@ let open = false;
   <button class="open-modal">Más información</button>
 
   <Modal open={open}>
-    <h3 class="modal-title">{nombre}</h3>
-    <div class="modal-body">
-      <slot />
-    </div>
+    <h3>{nombre}</h3>
+    <slot />
   </Modal>
-<script is:inline>
+<script>
   function inicializarModales() {
     const servicios = document.querySelectorAll('.servicio');
  
@@ -39,19 +37,14 @@ let open = false;
 
       newCloseBtn.addEventListener('click', () => modal.classList.remove('show'));
 
-      // Evita registrar múltiples listeners sobre el mismo modal en cada astro:page-load
-      if (!modal.dataset.clickBound) {
-        modal.dataset.clickBound = 'true';
-        modal.addEventListener('click', (e) => {
-          if (e.target === modal) {
-            modal.classList.remove('show');
-          }
-        });
-      }
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('show');
+        }
+      });
     });
   }
 
-  document.addEventListener('DOMContentLoaded', inicializarModales);
   document.addEventListener('astro:page-load', inicializarModales);
 </script>
 </div>
