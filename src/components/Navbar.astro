@@ -18,34 +18,80 @@
 </nav>
 
 <script>
-  const btn = document.getElementById("menu-btn");
-  const links = document.getElementById("nav-links");
+  /**
+   * Inicializa la interacción del Navbar en móvil.
+   *
+   * Importante: el proyecto usa `ClientRouter` (astro:transitions), así que al navegar
+   * entre páginas el DOM se reemplaza sin recargar el sitio. Por eso necesitamos
+   * re-enganchar los listeners en cada `astro:page-load`.
+   */
+  function initMobileMenu() {
+    const btn = document.getElementById("menu-btn");
+    const links = document.getElementById("nav-links");
 
-  btn?.addEventListener("click", () => {
-    links?.classList.toggle("is-open");
-    btn?.classList.toggle("active");
-  });
+    // Si por algún motivo el navbar no está en la página, no hacemos nada.
+    if (!btn || !links) return;
 
-  links?.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      links.classList.remove("is-open");
-      btn?.classList.remove("active");
-    });
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!(e.target instanceof Node)) return;
-
-    const clickDentroMenu = links?.contains(e.target);
-    const clickEnBoton = btn?.contains(e.target);
-
-    if (!clickDentroMenu && !clickEnBoton) {
-      links?.classList.remove("is-open");
-      btn?.classList.remove("active");
+    /**
+     * Evita duplicar listeners entre navegaciones.
+     * Guardamos un `AbortController` en `window` para poder "desregistrar" todos los
+     * handlers anteriores antes de volver a inicializar.
+     */
+    const ww = window as Window & {
+      __mudanzasMobileMenuAbortController?: AbortController;
+    };
+    const prev = ww.__mudanzasMobileMenuAbortController;
+    if (prev) {
+      prev.abort();
     }
-  });
+    const controller = new AbortController();
+    ww.__mudanzasMobileMenuAbortController = controller;
+    const { signal } = controller;
 
+    // Abre/cierra el menú (clase `is-open`) y anima el botón hamburguesa (`active`).
+    btn.addEventListener(
+      "click",
+      () => {
+        links.classList.toggle("is-open");
+        btn.classList.toggle("active");
+      },
+      { signal }
+    );
 
+    // Al pulsar cualquier enlace del menú, se cierra el desplegable.
+    links.querySelectorAll("a").forEach((link) => {
+      link.addEventListener(
+        "click",
+        () => {
+          links.classList.remove("is-open");
+          btn.classList.remove("active");
+        },
+        { signal }
+      );
+    });
+
+    // Click fuera del menú/botón: cierra el desplegable para mejorar UX en móvil.
+    document.addEventListener(
+      "click",
+      (e) => {
+        if (!(e.target instanceof Node)) return;
+
+        const clickDentroMenu = links.contains(e.target);
+        const clickEnBoton = btn.contains(e.target);
+
+        if (!clickDentroMenu && !clickEnBoton) {
+          links.classList.remove("is-open");
+          btn.classList.remove("active");
+        }
+      },
+      { signal }
+    );
+  }
+
+  // Carga inicial (primer render del documento).
+  document.addEventListener("DOMContentLoaded", initMobileMenu);
+  // Navegación cliente (Astro View Transitions / ClientRouter).
+  document.addEventListener("astro:page-load", initMobileMenu);
 </script>
 
 <style>
