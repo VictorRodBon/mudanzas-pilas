@@ -11,7 +11,7 @@ import elegirnos from "../assets/elegirnos.json";
       <section>
         <h2>Quienes somos</h2>
         <p>
-          En Mudanzas Express somos una empresa especializada en traslados locales
+          En Mudanzas Pilas somos una empresa especializada en traslados locales
           y nacionales, comprometida con ofrecer un servicio seguro, eficiente y
           sin complicaciones. Desde nuestros inicios, hemos tenido un objetivo
           claro: hacer que cada mudanza sea una experiencia tranquila, organizada
@@ -40,8 +40,7 @@ import elegirnos from "../assets/elegirnos.json";
   
       <section>
         <h2>Nuestra forma de trabajar</h2>
-        <p>Sabemos que una mudanza no es solo mover cajas.</p>
-        <p>Es trasladar recuerdos, proyectos y parte de tu vida.</p>
+        <p>Sabemos que una mudanza no es solo mover cajas, es trasladar recuerdos, proyectos y parte de tu vida.</p>
   
         <p>Por eso trabajamos con:</p>
   
@@ -76,7 +75,8 @@ import elegirnos from "../assets/elegirnos.json";
       </section>
   
       <section id="elegirnos">
-        <h2>Por qué elegirnos</h2>
+        <div class = "titulo">Por qué elegirnos</div>
+        <br><br>
         <div id="elegirnosContent">
           {
             Object.values(elegirnos).map((s: any) => (
@@ -114,9 +114,14 @@ import elegirnos from "../assets/elegirnos.json";
     padding-top: 10px;
   }
 
-  h2 {
-    margin: 0;
+  .titulo {
+    color: #1f4ea6;
+    font-size: 3rem;
+    padding: 0%;
+    text-align: center;
+    font-weight: bold;
   }
+
   #elegirnos {
     scroll-margin-top: 100px;
     margin: 0 10%;
@@ -136,7 +141,8 @@ import elegirnos from "../assets/elegirnos.json";
     color: #1f4ea6;
     font-size: 3rem;
     padding: 0%;
-    text-align: center;
+    text-align: left;
+    margin: 0;
   }
 
   p {
