@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <style>
+      .cls-1 { fill: #1d3363; }
+      .cls-2 { fill: #fff; }
+    </style>
+  </defs>
+  <rect class="cls-1" x="18" y="24" width="64" height="42" rx="3" />
+  <rect class="cls-2" x="23" y="29" width="54" height="32" rx="1.5" />
+  <path class="cls-1" d="M12,66 L88,66 C90.2,66 92,67.8 92,70 L92,72 C92,74.2 90.2,76 88,76 L12,76 C9.8,76 8,74.2 8,72 L8,70 C8,67.8 9.8,66 12,66 Z" />
+  <rect class="cls-2" x="40" y="68" width="20" height="6" rx="1" />
+</svg>
