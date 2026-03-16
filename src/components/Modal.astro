@@ -16,8 +16,7 @@ const { open } = Astro.props;
     background: rgba(0,0,0,0);
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding-top: 10vh;
+    align-items: center;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -37,7 +36,6 @@ const { open } = Astro.props;
     opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
     width: 70vw;
-    max-width: 800px;
   }
 
   .modal.show .modal-content {
@@ -64,10 +62,8 @@ const { open } = Astro.props;
   }
 
   @media (max-width: 768px) {
-    .modal-content {
-      width: 90vw;
-      max-height: 80vh;
-      overflow-y: auto;
+    .modal-content{
+      margin-top: 120px;
     }
   }
   
