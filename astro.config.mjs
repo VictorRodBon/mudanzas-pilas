@@ -2,18 +2,20 @@ import { loadEnv } from "vite";
 import { defineConfig } from 'astro/config';
 import vercel from '@astrojs/vercel';
 
-// Cargamos las variables (asegúrate de que el tercer parámetro sea '')
 const env = loadEnv(process.env.NODE_ENV ?? 'development', process.cwd(), "");
 const siteUrl = env.PUBLIC_SITE_URL || "https://mudanzas-pilas.vercel.app";
 
 export default defineConfig({
+  // El adaptador debe contener la configuración de Vercel
   adapter: vercel({
     webAnalytics: { enabled: true },
+    mode: 'serverless', // Ahora está dentro del adaptador, donde toca
+    functionPerRoute: false, // Esto suele evitar conflictos de runtime
   }),
-
-  mode:'serverless',
   
   site: siteUrl,
+
+  output: 'server', // Asegúrate de que esto esté presente para usar el adaptador
 
   trailingSlash: 'ignore',
 
