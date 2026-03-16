@@ -1,5 +1,10 @@
 {
     "functions": {
-      "nodeVersion": "20.x"
+      "**/*.js": {
+        "runtime": "nodejs20.x"
+      },
+      "_render": {
+        "runtime": "nodejs20.x"
+      }
     }
   }
