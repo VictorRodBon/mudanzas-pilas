@@ -6,7 +6,7 @@ import elegirnos from "../assets/elegirnos.json";
 ---
 
 <Layout>
-  <section data-title="¿Quienes somos?">
+  <section data-title="¿Quienes somos?" id="principal">
     <main>
       <section>
         <h2>Quienes somos</h2>
@@ -75,8 +75,7 @@ import elegirnos from "../assets/elegirnos.json";
       </section>
   
       <section id="elegirnos">
-        <div class = "titulo">Por qué elegirnos</div>
-        <br><br>
+        <h2>Por qué elegirnos</h2>
         <div id="elegirnosContent">
           {
             Object.values(elegirnos).map((s: any) => (
@@ -129,6 +128,11 @@ import elegirnos from "../assets/elegirnos.json";
     min-height: calc(100vh - 105px);
     margin: auto;
     width: 100%;
+    padding-bottom: 7vh;
+  }
+
+  #elegirnos>h2{
+    text-align: center;
   }
 
   #elegirnosContent {
@@ -138,6 +142,7 @@ import elegirnos from "../assets/elegirnos.json";
     gap: 5vw;
     width: 100%;
     margin: auto;
+    margin-top: 2vh;
   }
 
   h2 {
@@ -151,16 +156,30 @@ import elegirnos from "../assets/elegirnos.json";
   p {
     font-size: 1.25rem;
     color: #1f2937;
+    padding: 0px;
+    margin: 0%;
   }
 
-@media (max-width: 768px) {
+  main>section{
+    padding-bottom: 5vh;
+  }
+
+  main>section:last-child{
+    padding-bottom: 10vh;
+  }
+
+  ul{
+    margin: 0%;
+  }
+
+
+  @media (max-width: 768px) {
     section {
       width: 90%;
     }
 
     #elegirnos {
       margin: 0;
-      padding: 10% 0;
     }
 
     h2, .titulo {
