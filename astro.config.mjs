@@ -10,6 +10,8 @@ export default defineConfig({
   adapter: vercel({
     webAnalytics: { enabled: true },
   }),
+
+  mode:'serverless',
   
   site: siteUrl,
 
