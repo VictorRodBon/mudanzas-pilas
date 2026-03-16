@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Elegirnos from "../components/Elegirnos.astro";
+import Servicio from "../components/Servicio.astro";
+import elegirnos from "../assets/elegirnos.json";
+
 ---
 
 <Layout>
@@ -73,17 +75,20 @@ import Elegirnos from "../components/Elegirnos.astro";
         </p>
       </section>
   
-      <section>
+      <section id="elegirnos">
         <h2>Por qué elegirnos</h2>
-        <div id="elegir">
-          <Elegirnos nombre="atencion"><h3>Atención personalizada</h3></Elegirnos>
-          <Elegirnos nombre="presupuesto"><h3>Presupuestos ajustados a tus necesidades</h3></Elegirnos>
-          <Elegirnos nombre="atencion"><h3>Servicio rápido y flexible</h3></Elegirnos>
-          <Elegirnos nombre="mudanzas"><h3>Materiales de embalaje de alta calidad</h3></Elegirnos>
-          <Elegirnos nombre="mudanzas"><h3>Mudanzas locales, nacionales y de oficina</h3></Elegirnos>
-          <Elegirnos nombre="opciones"><h3>Opciones de guardamuebles y almacenamiento</h3></Elegirnos>
-  
-        </ul>
+        <div id="elegirnosContent">
+          {
+            Object.values(elegirnos).map((s: any) => (
+              <Servicio nombre={s.nombre} img={s.img}>
+                {Object.values(s.parrafos).map((p: any) => (
+                  <p>{p}</p>
+                ))}
+                <i class="fa-solid fa-box-archive" />
+              </Servicio>
+            ))
+          }
+        </div>
       </section>
   
       <section>
@@ -112,12 +117,38 @@ import Elegirnos from "../components/Elegirnos.astro";
   h2 {
     margin: 0;
   }
-  #elegir {
+  #elegirnos {
+    scroll-margin-top: 100px;
+    margin: 0 10%;
+    padding: 5% 0;
+    min-height: calc(100vh - 105px);
+  }
+
+  #elegirnosContent {
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    margin: 0%;
-    padding: 0%;
-
-    gap: 10px;
+    gap: 5vw;
+    width: 100%;
   }
+
+  h2 {
+    color: #1f4ea6;
+    font-size: 3rem;
+    padding: 0%;
+    text-align: center;
+  }
+
+  p {
+    font-size: 1.25rem;
+    color: #1f2937;
+  }
+
+  @media (max-width: 768px) {
+    p{
+      font-size: 1rem;
+    }
+  }
+
+  
 </style>

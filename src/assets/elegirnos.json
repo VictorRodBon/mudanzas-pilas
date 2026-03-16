@@ -1,0 +1,44 @@
+{
+    "Atención personalizada": {
+        "nombre": "Atención personalizada",
+        "img":"/img/atencion.svg",
+        "parrafos": {
+            "parrafo1": "Nos adaptamos a tus necesidades con asesoramiento directo y soluciones a medida desde el primer momento."
+        }
+    },
+    "Presupuestos ajustados a tus necesidades": {
+        "nombre": "Presupuestos ajustados a tus necesidades",
+        "img":"/img/presupuesto.svg",
+        "parrafos": {
+            "parrafo1": "Precios transparentes y adaptados a cada servicio, para que sepas exáctamente lo que pagas."
+        }
+    },
+    "Servicio rápido y flexible": {
+        "nombre": "Servicio rápido y flexible",
+        "img":"/img/atencion.svg",
+        "parrafos": {
+            "parrafo1": "Nos adaptamos a tus necesidades para que tu mudanza sea rápidda, organizada y sin compolicaciones."
+        }
+    },
+    "Materiales de embalaje de alta calidad": {
+        "nombre": "Materiales de embalaje de alta calidad",
+        "img":"/img/mudanzas.svg",
+        "parrafos": {
+            "parrafo1": "Utilizamos embalajes de alta calidad para garantizar la seguridad de tus pertenencias."
+        }
+    },
+    "Mudanzas locales, nacionales y de oficina": {
+        "nombre": "Mudanzas locales, nacionales y de oficina",
+        "img":"/img/mudanzas.svg",
+        "parrafos": {
+            "parrafo1": "Experiencia en traslados de hogares, oficinas y negocios con total garantía."
+        }
+    },
+    "Opciones de guardamuebles y almacenamiento": {
+        "nombre": "Opciones de guardamuebles y almacenamiento",
+        "img":"/img/guardamuebles.svg",
+        "parrafos": {
+            "parrafo1": "Nos adaptamos a tus necesidades con asesoramiento directo y soluciones a medida desde el primer momento."
+        }
+    }
+}
