@@ -1,12 +1,18 @@
 ---
-const alt = Astro.props.alt ?? "Mudanzas Pilas";
+const { alt, lang: langProp } = Astro.props;
+
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const urlLang = getLangFromUrl(Astro.url);
+const lang = langProp || urlLang;
+const t = useTranslations(lang);
 ---
 
 <section class="hero" id="hero" aria-label="Hero" data-title="Inicio">
   <div class="hero__inner">
-    <h1 class="hero__title">Mudanzas Pilas</h1>
-    <p class="hero__tagline">Mudanzas rápidas, cuidadas y al mejor precio</p>
-    <p class="hero__sub">Nos encargamos de todo. Tú solo estrena casa.</p>
+    <h1 class="hero__title">{t("hero_title")}</h1>
+    <p class="hero__tagline">{t("hero_tagline")}</p>
+    <p class="hero__sub">{t("hero_sub")}.</p>
   </div>
 </section>
 

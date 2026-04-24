@@ -2,18 +2,25 @@
 import { actions } from 'astro:actions';
 
 const result = Astro.getActionResult(actions.sendEmail);
+
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const { lang: langProp } = Astro.props;
+const urlLang = getLangFromUrl(Astro.url);
+const lang = langProp || urlLang;
+const t = useTranslations(lang);
 ---
 <section id="presupuesto" class="presupuesto" data-title="Contacto">
   <div class="presupuesto__inner" id="contacto">
-    <h2 class="presupuesto__title">Pedir presupuesto</h2>
+    <h2 class="presupuesto__title">{t('presupuesto_title')}</h2>
     <p class="presupuesto__subtitle">
-      Cuéntanos lo que necesitas y te respondemos lo antes posible.
+      {t('presupuesto_subtitle')}.
     </p>
 
     <form class="presupuesto__form" method="post">
       <div class="presupuesto__grid">
         <div class="field">
-          <label for="nombre">Nombre</label>
+          <label for="nombre">{t('presupuesto_name')}</label>
           <input
             id="nombre"
             name="nombre"
@@ -24,7 +31,7 @@ const result = Astro.getActionResult(actions.sendEmail);
         </div>
 
         <div class="field">
-          <label for="apellidos">Apellidos</label>
+          <label for="apellidos">{t('presupuesto_last_name')}</label>
           <input
             id="apellidos"
             name="apellidos"
@@ -35,7 +42,7 @@ const result = Astro.getActionResult(actions.sendEmail);
         </div>
 
         <div class="field">
-          <label for="telefono">Teléfono</label>
+          <label for="telefono">{t('presupuesto_phone')}</label>
           <input
             id="telefono"
             name="telefono"
@@ -46,7 +53,7 @@ const result = Astro.getActionResult(actions.sendEmail);
         </div>
 
         <div class="field">
-          <label for="correo">Correo</label>
+          <label for="correo">{t('presupuesto_mail')}</label>
           <input
             id="correo"
             name="correo"
@@ -57,12 +64,12 @@ const result = Astro.getActionResult(actions.sendEmail);
         </div>
 
         <div class="field field--full">
-          <label for="mensaje">¿Qué necesitas?</label>
+          <label for="mensaje">{t('presupuesto_message')}</label>
           <textarea id="mensaje" name="mensaje" rows="6" ></textarea>
         </div>
 
         <div class="actions field--full">
-          <button type="submit">Enviar</button>
+          <button type="submit">{t('presupuesto_submit')}</button>
         </div>
       </div>
     </form>

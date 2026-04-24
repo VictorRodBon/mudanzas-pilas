@@ -27,5 +27,10 @@ export default defineConfig({
     headers: {
       "Access-Control-Allow-Origin": siteUrl
     }
+  },
+
+  i18n:{
+    defaultLocale: 'es',
+    locales: ['es', 'en']
   }
 });

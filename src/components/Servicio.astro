@@ -1,5 +1,7 @@
 ---
-const { nombre, img } = Astro.props;
+import { useTranslations } from '../i18n/utils';
+const { nombre, img, lang = 'es' } = Astro.props;
+const t = useTranslations(lang);
 
 import Modal from "./Modal.astro";
 let open = false;
@@ -10,16 +12,15 @@ let open = false;
 
   <img src={img} alt={nombre} loading="eager" />
 
-  <button class="open-modal">Más información</button>
+  <button class="open-modal">{t('servicios_more_info')}</button>
 
-  <Modal open={open}>
+  <Modal open={open} lang={lang}>
     <h3>{nombre}</h3>
     <slot />
   </Modal>
 <script>
   function inicializarModales() {
     const servicios = document.querySelectorAll('.servicio');
- 
     servicios.forEach((root) => {
       const openBtn = root.querySelector('.open-modal');
       const modal = root.querySelector('.modal');

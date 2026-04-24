@@ -5,10 +5,13 @@ import Main from '../components/Main.astro';
 import Hero from '../components/Hero.astro';
 import Presupuesto from '../components/Presupuesto.astro';
 
+import { getLangFromUrl } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <Layout>
-	<Hero/>
-	<Main/>
-	<Presupuesto/>
+	<Hero lang={lang}/>
+	<Main lang={lang}/>
+	<Presupuesto lang={lang}/>
 </Layout>

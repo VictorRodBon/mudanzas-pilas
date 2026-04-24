@@ -1,11 +1,9 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Servicio from "../components/Servicio.astro";
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import Layout from "../../layouts/Layout.astro";
+import Servicio from "../../components/Servicio.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
-const { lang: langProp } = Astro.props;
-const urlLang = getLangFromUrl(Astro.url);
-const lang = langProp || urlLang;
+const lang = "en";
 const t = useTranslations(lang);
 const elegirnos = t('elegirnos') as any;
 ---
@@ -82,7 +80,7 @@ const elegirnos = t('elegirnos') as any;
         </div>
       </section>
   
-<section>
+      <section>
         <h2>{t('about_help_title')}</h2>
         <p>
           {t('about_help_p1')}

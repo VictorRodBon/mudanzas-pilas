@@ -1,10 +1,12 @@
 ---
 import Servicios from "./Servicios.astro";
+
+const { lang = 'es' } = Astro.props;
 ---
 
 <main>
   <content id="content">
-    <Servicios />
+    <Servicios lang={lang} />
   </content>
 </main>
 

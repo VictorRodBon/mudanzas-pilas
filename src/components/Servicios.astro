@@ -1,14 +1,20 @@
 ---
-import servicios from "../assets/servicios.json";
 import Servicio from "./Servicio.astro";
+import { useTranslations, getLangFromUrl } from "../i18n/utils";
+
+const { lang: langProp } = Astro.props;
+const urlLang = getLangFromUrl(Astro.url);
+const lang = langProp || urlLang;
+const t = useTranslations(lang);
+const servicios = t('servicios') as any;
 ---
 
-<section id="servicios" data-title="Servicios">
-  <h2>Servicios</h2>
+<section id="servicios" data-title={t('servicios_title')}>
+  <h2>{t('servicios_title')}</h2>
   <div id="serviciosContent">
     {
       Object.values(servicios).map((s: any) => (
-        <Servicio nombre={s.nombre} img={s.img}>
+        <Servicio nombre={s.nombre} img={s.img} lang={lang}>
           {Object.values(s.parrafos).map((p: any) => (
             <p>{p}</p>
           ))}

@@ -1,11 +1,13 @@
 ---
-const { open } = Astro.props;
+import { useTranslations } from '../i18n/utils';
+const { open, lang = 'es' } = Astro.props;
+const t = useTranslations(lang);
 ---
 
 <div class={`modal ${open ? "show" : ""}`}>
   <div class="modal-content">
     <slot />
-    <button class="close-modal">Cerrar</button>
+    <button class="close-modal">{t('modal_close')}</button>
   </div>
 </div>
 

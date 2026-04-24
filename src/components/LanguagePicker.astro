@@ -1,0 +1,61 @@
+---
+import { languages } from "../i18n/ui";
+import { getLangFromUrl } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+
+// Obtenemos la ruta actual para que al cambiar de idioma
+// el usuario se quede en la misma página (ej: /servicios -> /en/servicios)
+const pathname = Astro.url.pathname;
+
+// Función para generar la URL correcta
+const getLocalizedPath = (targetLang: string) => {
+    // Si el idioma actual es el por defecto (es), quitamos el prefijo
+    const segments = pathname.split("/").filter(Boolean);
+
+    // Si estamos en una página de idioma (ej: /en/...), quitamos el primer segmento
+    if (segments[0] in languages) {
+        segments.shift();
+    }
+
+    // Si el destino es 'es' (por defecto), la ruta es /segmentos
+    // Si el destino es 'en', la ruta es /en/segmentos
+    const prefix = targetLang === "es" ? "" : `/${targetLang}`;
+    return `${prefix}/${segments.join("/")}`;
+};
+---
+
+<div class="lang-picker">
+    {
+        Object.entries(languages).map(([code, label]) => (
+            <a
+                href={getLocalizedPath(code)}
+                class={lang === code ? "active" : ""}
+            >
+                {code.toUpperCase()}
+            </a>
+        ))
+    }
+</div>
+
+<style>
+    .lang-picker {
+        display: flex;
+        gap: 10px;
+    }
+    .lang-picker a {
+        text-decoration: none;
+        color: #666;
+        font-weight: bold;
+        padding: 4px 8px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+    .lang-picker a.active {
+        background-color: #f0f0f0; /* Cambia al color de tu marca */
+        color: #000;
+    }
+    .lang-picker a:hover:not(.active) {
+        color: #000;
+    }
+</style>

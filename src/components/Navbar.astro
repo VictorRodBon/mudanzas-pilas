@@ -1,3 +1,15 @@
+---
+import LanguagePicker from './LanguagePicker.astro';
+const { alt, lang: langProp } = Astro.props;
+
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const urlLang = getLangFromUrl(Astro.url);
+const lang = langProp || urlLang;
+const t = useTranslations(lang);
+
+const prefix = lang === 'es' ? '' : `/${lang}`;
+---
 <nav class="navbar">
   <div class="logo">
     <img src="/img/logo.png" alt="Logo" />
@@ -10,10 +22,11 @@
   </button>
 
   <ul class="nav-links" id="nav-links">
-    <li><a href="/#hero" data-title="Inicio">INICIO</a></li>
-    <li><a href="/#servicios" data-title="Servicios">SERVICIOS</a></li>
-    <li><a href="/#presupuesto" data-title="Contacto">CONTACTO</a></li>
-    <li><a href="/about">¿QUIÉNES SOMOS?</a></li>
+    <li><a href={`${prefix}/#hero`} data-title="Inicio">{t('link_1')}</a></li>
+    <li><a href={`${prefix}/#servicios`} data-title="Servicios">{t('link_2')}</a></li>
+    <li><a href={`${prefix}/#presupuesto`} data-title="Contacto">{t('link_3')}</a></li>
+    <li><a href={`${prefix}/about`}>{t('link_4')}</a></li>
+    <li><LanguagePicker  /></li>
   </ul>
 </nav>
 

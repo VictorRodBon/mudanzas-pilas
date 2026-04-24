@@ -1,3 +1,10 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
 <style>
 .footer {
   background-color: #333333;
@@ -158,37 +165,37 @@
 
   <div id="global">
     <section id="slogan">
-      <h2>Mudanzas Pilas</h2>
-      <p>Mudanzas rápidas, seguras y eficaces</p>
+      <h2>{t('footer_slogan_title')}</h2>
+      <p>{t('footer_slogan_subtitle')}</p>
     </section>
     <section id="main">
       <div class="footer-horario">
-        <h2>Horario</h2>
+        <h2>{t('footer_main_title')}</h2>
 
         <ul>
           <li>
-            <strong>Lunes a Viernes:</strong> 
+            <strong>{t('footer_main_week_days')}:</strong> 
           </li>
           <li>09:00 – 18:00</li>
           <br>
           <li>
-            <strong>Sabados y Domingos:</strong> 
+            <strong>{t('footer_main_weekend_days')}:</strong> 
           </li>
-          <li>Cerrado</li>
+          <li>{t('footer_main_weekend_days_state')}</li>
         </ul>
       </div>
     
       <div class="footer-map">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12168.70617650497!2d-3.8553517!3d40.316239249999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd418c24d578dbb5%3A0xd2923868792d2c42!2sMudanzas%20Pilas!5e0!3m2!1ses!2ses!4v1772617679705!5m2!1ses!2ses" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="ubicacion"></iframe>
-        <center><p><a href="">Aviso Legal</a> | <a href="">Política de privacidad</a></p></center>
+        <center><p><a href="">{t('footer_main_legal')}</a> | <a href="">{t("footer_main_policy")}</a></p></center>
       </div>
     
       <div class="footer-contacto">
         <div>
-          <h2>Contacto</h2>
-          <p>C/ Sao Paulo, 1 28936 Móstoles.</p>
-          <p>Spain Tel: 916 457 640</p>
-          <p>Fax: 916 477 861</p>
+          <h2>{t('footer_main_contact_title')}</h2>
+          <p>{t('footer_main_contact_street')}.</p>
+          <p>{t('footer_main_contact_phone')}.</p>
+          <p>{t('footer_main_contact_fax')}.</p>
         </div>
       </div>
     </section>
