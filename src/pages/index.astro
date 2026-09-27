@@ -10,7 +10,11 @@ import { getLangFromUrl } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 ---
 
-<Layout>
+<Layout
+	lang={lang}
+	title="Mudanzas Pilas | Mudanzas en Madrid"
+	description="Mudanzas locales y nacionales en Madrid. Embalaje, transporte y montaje con un equipo profesional. Pide tu presupuesto."
+>
 	<Hero lang={lang}/>
 	<Main lang={lang}/>
 	<Presupuesto lang={lang}/>
