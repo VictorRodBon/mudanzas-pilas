@@ -20,6 +20,20 @@ const t = useTranslations(lang);
 		<link rel="icon" href="/img/logo.png" />
 		<meta name="generator" content={Astro.generator} />
 
+	  <!-- Imagen que se mostrará al compartir -->
+	  <meta property="og:image" content="https://tusitio.com">
+	  
+	  <!-- Opcional pero muy recomendado para fijar el tamaño exacto -->
+	  <meta property="og:image:width" content="1200">
+	  <meta property="og:image:height" content="630">
+	
+	  <!-- Etiquetas de apoyo necesarias para armar la tarjeta -->
+	  <meta property="og:title" content="Título llamativo de tu página">
+	  <meta property="og:description" content="Breve resumen de tu web para convencer al usuario.">
+	  <meta property="og:url" content="https://tusitio.com">
+	  <meta property="og:type" content="website">
+
+
 		<ClientRouter />
 	</head>
 	<body>
