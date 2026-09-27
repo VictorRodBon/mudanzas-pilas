@@ -12,30 +12,35 @@ const t = useTranslations(lang);
 
 <!doctype html>
 <html lang={lang}>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-		<link rel="icon" type="image/png" href="/img/logo.png" />
+<head>
+<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" type="image/png" href="/img/logo.png" />
+    <meta name="generator" content={Astro.generator} />
 
-		<link rel="icon" href="/img/logo.png" />
-		<meta name="generator" content={Astro.generator} />
+    <!-- SEO Estándar -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
 
-	  <!-- Imagen que se mostrará al compartir -->
-	  <meta property="og:image" content="https://tusitio.com">
-	  
-	  <!-- Opcional pero muy recomendado para fijar el tamaño exacto -->
-	  <meta property="og:image:width" content="1200">
-	  <meta property="og:image:height" content="630">
-	
-	  <!-- Etiquetas de apoyo necesarias para armar la tarjeta -->
-	  <meta property="og:title" content="Título llamativo de tu página">
-	  <meta property="og:description" content="Breve resumen de tu web para convencer al usuario.">
-	  <meta property="og:url" content="https://tusitio.com">
-	  <meta property="og:type" content="website">
+    <!-- Open Graph / Facebook / WhatsApp (Inyectado con las variables de Astro) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
+    <!-- Tarjeta específica para X (Twitter) -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImageUrl} />
 
-		<ClientRouter />
-	</head>
+    <ClientRouter />
+</head>
 	<body>
 		<Navbar/>
 		<slot />
