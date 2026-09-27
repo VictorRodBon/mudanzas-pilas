@@ -6,13 +6,29 @@ import { ClientRouter } from "astro:transitions";
 
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
-const lang = getLangFromUrl(Astro.url);
+interface Props {
+	title?: string;
+	description?: string;
+	canonicalURL?: string;
+	ogImageUrl?: string;
+	lang?: 'es' | 'en';
+}
+
+const {
+	title = 'Mudanzas Pilas',
+	description = 'Servicios profesionales de mudanzas y transporte.',
+	canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href,
+	ogImageUrl = new URL('/img/logo.png', Astro.url).href,
+	lang: langProp,
+} = Astro.props;
+const lang = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
 <!doctype html>
 <html lang={lang}>
 <head>
+<meta charset="UTF-8" />
 <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link rel="icon" type="image/png" href="/img/logo.png" />
