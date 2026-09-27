@@ -17,19 +17,24 @@ interface Props {
 const {
 	title = 'Mudanzas Pilas',
 	description = 'Servicios profesionales de mudanzas y transporte.',
+	// Genera automáticamente la URL absoluta según el entorno (local o producción)
 	canonicalURL = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href,
+	// Genera automáticamente la URL absoluta de la imagen para redes sociales
 	ogImageUrl = new URL('/img/logo.png', Astro.url).href,
 	lang: langProp,
 } = Astro.props;
+
 const lang = langProp ?? getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+// Modificamos el título base dinámicamente según el idioma para pasarlo al script inferior
+const brandName = lang === 'en' ? 'Pilas Removals' : 'Mudanzas Pilas';
 ---
 
 <!doctype html>
 <html lang={lang}>
 <head>
-<meta charset="UTF-8" />
-<meta charset="UTF-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
     <link rel="icon" type="image/png" href="/img/logo.png" />
     <meta name="generator" content={Astro.generator} />
@@ -39,7 +44,7 @@ const t = useTranslations(lang);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 
-    <!-- Open Graph / Facebook / WhatsApp (Inyectado con las variables de Astro) -->
+    <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
@@ -77,7 +82,8 @@ const t = useTranslations(lang);
 	}
 </style>
 
-<script is:inline>
+<!-- Pasamos la variable brandName de Astro al cliente usando define:vars -->
+<script is:inline define:vars={{ brandName }}>
 	function initSectionObserver() {
 		const sections = document.querySelectorAll("section[data-title]");
 	
@@ -86,7 +92,8 @@ const t = useTranslations(lang);
 			entries.forEach((entry) => {
 			if (entry.isIntersecting) {
 				const newTitle = entry.target.dataset.title;
-				document.title = `Mudanzas Pilas | ${newTitle}`;
+				// Ahora respeta la marca internacionalizada recibida de Astro
+				document.title = `${brandName} | ${newTitle}`;
 			}
 			});
 		},
